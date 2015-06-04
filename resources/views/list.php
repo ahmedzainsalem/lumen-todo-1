@@ -3,6 +3,7 @@
     <title>To do List with Lumen</title>
   </head>
   <body>
+  <h1>All Tasks (<?= count($items) ?>)</h1>
     <table border="1">
       <thead>
         <tr>
