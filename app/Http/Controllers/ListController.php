@@ -22,9 +22,7 @@ class ListController extends BaseController {
     $listItem = $this->getTask();
     // Add the new item
     $item = new Item;
-    $item->task = $listItem;
-    $item->completed = false;
-    $item->save();
+    $item->createNew($listItem);
 
     return redirect()->back();
   }
@@ -33,8 +31,7 @@ class ListController extends BaseController {
     // Get the task to update
     $listItem = $this->getTask();
     // Update the task
-    Item::find($listItem)
-          ->update(['completed' => true]);
+    Item::find($listItem)->check();
 
     return redirect()->back();
   }
@@ -43,8 +40,7 @@ class ListController extends BaseController {
     // Get the task to update
     $listItem = $this->getTask();
     // Update task
-    Item::find($listItem)
-          ->update(['completed' => false]);
+    Item::find($listItem)->unCheck();
 
     return redirect()->back();
   }

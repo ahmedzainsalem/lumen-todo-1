@@ -20,17 +20,17 @@
             <td class="complete">
 
             <?php if ( ! $item->completed) { ?>
-              <form action="<?= route('check_list_item') ?>" method="post">
+              <form action="<?= route('task.check') ?>" method="post">
                 <input type="hidden" name="task" value="<?= $item->id ?>">
                 <button>&#9744;</button>
               </form>
             <?php } else { ?>
-              <form action="<?= route('uncheck_list_item') ?>" method="post">
+              <form action="<?= route('task.uncheck') ?>" method="post">
                 <input type="hidden" name="task" value="<?= $item->id ?>">
                 <button>&#9745;</button>
               </form>
             <?php } ?>
-            <form action="<?= route('remove_list_item') ?>" method="post">
+            <form action="<?= route('task.remove') ?>" method="post">
               <input type="hidden" name="task" value="<?= $item->id ?>">
               <button>&#10005;</button>
             </form>
@@ -39,7 +39,7 @@
         <?php } ?>
       </tbody>
     </table>
-    <form id="add-item" action="<?= route('add_list_item') ?>" method="post">
+    <form id="add-item" action="<?= route('task.add') ?>" method="post">
       <input type="text" name="task">
       <button type="submit">Add Item</button>
     </form>
